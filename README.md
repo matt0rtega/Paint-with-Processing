@@ -13,8 +13,11 @@ Download link
 TouchOSC is an app designed for iOS that gives us the ability to communicate between platforms using Open Sound Control(OSC) or Midi. Also, gives us the ability to connect to our computer remotely so that it is not the main center of focus, the screen is not even needed.
 
 [Download TouchOSC](https://github.com/matt0rtega/Paint-with-Processing)
+
 [Download TouchOSC Editor](https://github.com/matt0rtega/Paint-with-Processing)
+
 [Download TouchOSC Bridge](https://github.com/matt0rtega/Paint-with-Processing)
+
 [Download Processing](https://github.com/matt0rtega/Paint-with-Processing)
 
 ###TouchOSC Editor
