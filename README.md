@@ -12,10 +12,10 @@ Download link
 ###What is TouchOSC?
 TouchOSC is an app designed for iOS that gives us the ability to communicate between platforms using Open Sound Control(OSC) or Midi. Also, gives us the ability to connect to our computer remotely so that it is not the main center of focus, the screen is not even needed.
 
-Download TouchOSC
-Download TouchOSC Editor
-Download TouchOSC Bridge
-Download Processing
+[Download TouchOSC]
+[Download TouchOSC Editor]
+[Download TouchOSC Bridge]
+[Download Processing]
 
 ###TouchOSC Editor
 In the TouchOSC Editor, we can create a customized interface with multiple pages and input types that gives us multiple ways to control behaviors in our sketches.
@@ -24,4 +24,4 @@ In the TouchOSC Editor, we can create a customized interface with multiple pages
 - Moving over to Processing to check connectivity and
 
 ###Getting started
-TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. The easiest way to get setup is by plugging in your iPad/iPhone to your computer and running TouchOSC Bridge app.
+TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. The easiest way to get setup is by plugging in your iPad/iPhone to your computer and running the TouchOSC Bridge app.
