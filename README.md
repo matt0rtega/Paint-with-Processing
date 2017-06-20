@@ -2,6 +2,8 @@
 ## Workshop June 2017
 ====
 
+Note: Show screen with QuickTime, New Movie Recording, and a Connected iOS Device.
+
 In this workshop we will be learning how to connect your Processing sketches to TouchOSC iPad app, create custom TouchOSC interfaces, so that you can control multiple parameters in your Processing sketches. Familiarity with processing will definitely help, but isn't necessary.
 
 We will spend 2 hours reviewing setup, and the 3rd hour will be dedicated to working on your sketches and answering questions.
@@ -24,7 +26,7 @@ Here we can see a quick video that will allow us to get an idea of the type of i
 
 [Example link](https://vimeo.com/59984923)
 
-<!-- <img src="img1.png" width="350"/> -->
+
 
 ====
 
@@ -40,10 +42,12 @@ TouchOSC is an app designed for iOS that gives us the ability to communicate bet
 
 [Download Processing](https://github.com/matt0rtega/Paint-with-Processing)
 
+<img src="img1.png"/>
+
 ====
 
 
-###TouchOSC Editor
+### TouchOSC Editor
 In the TouchOSC Editor, we can create a customized interface with multiple pages and input types that gives us multiple ways to control behaviors in our sketches.
 
 - Designing using basic inputs
@@ -52,5 +56,5 @@ In the TouchOSC Editor, we can create a customized interface with multiple pages
 ====
 
 
-###Getting started
+### Getting started
 TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. The easiest way to get setup is by plugging in your iPad/iPhone to your computer and running the TouchOSC Bridge app.
