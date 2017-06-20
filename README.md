@@ -6,23 +6,23 @@ In this workshop we will be learning how to connect your Processing sketches to 
 
 We will spend 2 hours reviewing setup, and the 3rd hour will be dedicated to working on your sketches and answering questions.
 
-Resources
+**Resources**
 
 [Download TouchOSC](https://itunes.apple.com/app/touchosc/id288120394)
 
-[Download TouchOSC Editor](https://github.com/matt0rtega/Paint-with-Processing)
+[Download TouchOSC Editor](https://hexler.net/software/touchosc#downloads)
 
-[Download TouchOSC Bridge](https://github.com/matt0rtega/Paint-with-Processing)
+[Download TouchOSC Bridge](https://hexler.net/software/touchosc#downloads)
 
-[Download Processing](https://github.com/matt0rtega/Paint-with-Processing)
+[Download Processing](https://processing.org/download/)
 
 
 ### Intro Sketch
 Here we can see a quick video that will allow us to get an idea of the type of interaction we can add by connecting controllers beyond the mouse. Once we go beyond the mouse, interacting with the computer becomes almost like a musical experience.
 
-Download link
+[Example link](https://vimeo.com/59984923)
 
-<img src="img1.png" width="350"/>
+<!-- <img src="img1.png" width="350"/> -->
 
 
 
