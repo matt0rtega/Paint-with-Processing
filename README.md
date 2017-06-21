@@ -25,7 +25,9 @@ We will spend 2 hours reviewing setup, and the 3rd hour will be dedicated to wor
 Here we can see a quick video that will allow us to get an idea of the type of interaction we can add by connecting controllers beyond the mouse. Once we go beyond the mouse, interacting with the computer becomes almost like a musical experience.
 
 [Example link 1](https://vimeo.com/59984923)
+
 [Example link 2](https://vimeo.com/59984923)
+
 [Example link 3](https://vimeo.com/59984923)
 
 ====
@@ -49,6 +51,10 @@ Demo:
 
 ### Getting started
 TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. We are going to review the two ways to get TouchOSC connected to your sketches.
+
+Import Libraries oscP5 and The MidiBus.
+<img src="img2.png"/>
+
 
 #### OSC
 In order to get connected to your computer from TouchOSC we will need to know your IP Address. In terminal, run the command ipconfig. But if you run the sketch helloWorld.pde, it should also output the IP Address.
