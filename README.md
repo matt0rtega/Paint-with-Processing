@@ -60,3 +60,16 @@ Midi is a bit easier of a setup in your Processing sketch. But you will also nee
 oscP5 = new OscP5(this,12000);
 myRemoteLocation = new NetAddress("127.0.0.1",12000);
 ```
+
+Our main function for getting midi input via Midibus:
+```
+void controllerChange(int channel, int number, int value) {
+  // Receive a controllerChange
+  println();
+  println("Controller Change:");
+  println("--------");
+  println("Channel:"+channel);
+  println("Number:"+number);
+  println("Value:"+value);
+}
+```
