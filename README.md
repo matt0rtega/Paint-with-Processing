@@ -53,18 +53,70 @@ Demo:
 TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. We are going to review the two ways to get TouchOSC connected to your sketches.
 
 Import Libraries oscP5 and The MidiBus.
-<img src="img2.png"/>
+<img src="img2.png" width="350"/>
 
 
 #### OSC
 In order to get connected to your computer from TouchOSC we will need to know your IP Address. In terminal, run the command ipconfig. But if you run the sketch helloWorld.pde, it should also output the IP Address.
 
-#### Midi
-Midi is a bit easier of a setup in your Processing sketch. But you will also need to include the same OSC setup so that you can remotely connect without a cable.
+`ipconfig`
+
+Keep that number on hand. You will need it for setting up the TouchOSC app.
+
+Our main setup and functions for OSC:
+
+```
+import oscP5.*;
+import netP5.*;
+
+OscP5 oscP5;
+NetAddress myRemoteLocation;
+```
 
 ```
 oscP5 = new OscP5(this,12000);
 myRemoteLocation = new NetAddress("127.0.0.1",12000);
+```
+
+Our main function for getting OSC events:
+```
+/* incoming osc message are forwarded to the oscEvent method. */
+void oscEvent(OscMessage theOscMessage) {
+
+  /* print the address pattern and the typetag of the received OscMessage */
+  print("### received an osc message.");
+  print(" addrpattern: "+theOscMessage.addrPattern());
+  println(" typetag: "+theOscMessage.typetag());
+
+  //Parse out the value using .get() method
+  float val = theOscMessage.get(0).floatValue();
+
+  println(" value: "+val);
+  
+}
+```
+
+
+#### Midi
+Midi is a bit easier of a setup in your Processing sketch. But you will also need to include the same OSC setup so that you can remotely connect without a cable.
+
+
+```
+import oscP5.*;
+import netP5.*;
+import themidibus.*;
+
+OscP5 oscP5;
+NetAddress myRemoteLocation;
+
+MidiBus myBus;
+```
+
+```
+oscP5 = new OscP5(this,12000);
+myRemoteLocation = new NetAddress("127.0.0.1",12000);
+
+myBus = new MidiBus(this, "TouchOSC Bridge", -1);
 ```
 
 Our main function for getting midi input via Midibus:
