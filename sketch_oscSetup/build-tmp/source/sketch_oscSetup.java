@@ -1,7 +1,26 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import oscP5.*; 
+import netP5.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class sketch_oscSetup extends PApplet {
+
 //OSC Setup
 
-import oscP5.*;
-import netP5.*;
+
+
 
 OscP5 oscP5;
 NetAddress myRemoteLocation;
@@ -14,8 +33,8 @@ float rotation = 0;
 float r, g, b = 0;
 float x, y;
 
-void setup() {
-  size(400,400, P3D);
+public void setup() {
+  
 
   // start oscP5, listening for incoming messages at port 12000
   oscP5 = new OscP5(this,12000);
@@ -27,13 +46,13 @@ void setup() {
    * and the port of the remote location address are the same, hence you will
    * send messages back to this sketch.
    */
-  myRemoteLocation = new NetAddress("127.0.0.1",12000);
+  myRemoteLocation = new NetAddress("172.30.27.108",12000);
 
 }
 
 
 // Sending messages, if need. But the main thing we want to do is receive messages.
-void mousePressed() {
+public void mousePressed() {
   /* create a new osc message with address pattern /test */
   OscMessage myMessage = new OscMessage("/test");
   myMessage.add(123);
@@ -43,7 +62,7 @@ void mousePressed() {
 }
 
 
-void draw() {
+public void draw() {
   //background(0);
   if(mousePressed){
     x = mouseX;
@@ -64,7 +83,7 @@ void draw() {
 
 
 /* incoming osc message are forwarded to the oscEvent method. */
-void oscEvent(OscMessage theOscMessage) {
+public void oscEvent(OscMessage theOscMessage) {
 
   /* print the address pattern and the typetag of the received OscMessage */
   print("### received an osc message.");
@@ -93,9 +112,19 @@ void oscEvent(OscMessage theOscMessage) {
     println(val);
   } else if (theOscMessage.checkAddrPattern("/rotary1")==true) {
     float val = theOscMessage.get(0).floatValue();
-    rotation = map(val, 0.0, 127.0, 0.0, PI);
+    rotation = map(val, 0.0f, 127.0f, 0.0f, PI);
     println(val);
   }
 
   
+}
+  public void settings() {  size(400,400, P3D); }
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "sketch_oscSetup" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }

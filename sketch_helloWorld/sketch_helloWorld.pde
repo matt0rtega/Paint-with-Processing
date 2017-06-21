@@ -1,18 +1,17 @@
 //OSC Setup
 
+/**
+ * oscP5properities by andreas schlegel
+ * example shows how to use osc properties.
+ * if you need more specific settings for your osc session,
+ * osc properties serves your needs.
+ * oscP5 website at http://www.sojamo.de/oscP5
+ */
 import oscP5.*;
 import netP5.*;
 
 OscP5 oscP5;
 NetAddress myRemoteLocation;
-
-//Declare your variables in the global scope so you can access them between functions
-float diameter = 30;
-float val;
-float rotation = 0;
-
-float r, g, b = 0;
-float x, y;
 
 void setup() {
   size(400,400, P3D);
@@ -44,21 +43,7 @@ void mousePressed() {
 
 
 void draw() {
-  //background(0);
-  if(mousePressed){
-    x = mouseX;
-    y = mouseY;  
-  }
-  
-  noStroke();
-  fill(r, g, b);
-  translate(x, y);
-
-  rotateX(rotation);
-  ellipse(0, 0, diameter, diameter);
-
-  x += random(-4, 4);
-  y += random(-4, 4);
+  background(0);
 }
 
 
@@ -72,30 +57,8 @@ void oscEvent(OscMessage theOscMessage) {
   println(" typetag: "+theOscMessage.typetag());
 
   //Parse out the value using .get() method
+  float val = theOscMessage.get(0).floatValue();
 
-  if (theOscMessage.checkAddrPattern("/xy1")==true){
-    float valX = theOscMessage.get(0).floatValue();
-    float valY = theOscMessage.get(1).floatValue();
-
-    r = valX;
-    diameter = valY;
-    g = valY;
-
-    println(x);
-    println(y);
-  } else if (theOscMessage.checkAddrPattern("/fader1")==true) {
-    float val = theOscMessage.get(0).floatValue();
-    b = val;
-    println(val);
-  } else if (theOscMessage.checkAddrPattern("/fader2")==true) {
-    float val = theOscMessage.get(0).floatValue();
-    // something = val;
-    println(val);
-  } else if (theOscMessage.checkAddrPattern("/rotary1")==true) {
-    float val = theOscMessage.get(0).floatValue();
-    rotation = map(val, 0.0, 127.0, 0.0, PI);
-    println(val);
-  }
-
+  println(" value: "+val);
   
 }
