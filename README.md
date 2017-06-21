@@ -53,6 +53,7 @@ Demo:
 TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. We are going to review the two ways to get TouchOSC connected to your sketches.
 
 Import Libraries oscP5 and The MidiBus.
+
 <img src="img2.png" width="350"/>
 
 
