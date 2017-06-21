@@ -50,10 +50,10 @@ Demo:
 ### Getting started
 TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port setup in order to receive a signal. We are going to review the two ways to get TouchOSC connected to your sketches.
 
-####OSC
+#### OSC
 In order to get connected to your computer from TouchOSC we will need to know your IP Address. In terminal, run the command ipconfig. But if you run the sketch helloWorld.pde, it should also output the IP Address.
 
-####Midi
+#### Midi
 Midi is a bit easier of a setup in your Processing sketch. But you will also need to include the same OSC setup so that you can remotely connect without a cable.
 
 ```
