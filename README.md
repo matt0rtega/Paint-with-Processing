@@ -54,7 +54,7 @@ TouchOSC communicated via Midi and OSC. OSC requires a Wifi connection and Port 
 
 Import Libraries oscP5 and The MidiBus.
 
-<img src="img2.png" width="350"/>
+<img src="img2.png" width="450"/>
 
 
 #### OSC
@@ -75,8 +75,10 @@ NetAddress myRemoteLocation;
 ```
 
 ```
-oscP5 = new OscP5(this,12000);
-myRemoteLocation = new NetAddress("127.0.0.1",12000);
+void setup(){}
+	oscP5 = new OscP5(this,12000);
+	myRemoteLocation = new NetAddress("127.0.0.1",12000);
+}
 ```
 
 Our main function for getting OSC events:
@@ -114,10 +116,12 @@ MidiBus myBus;
 ```
 
 ```
-oscP5 = new OscP5(this,12000);
-myRemoteLocation = new NetAddress("127.0.0.1",12000);
+void setup(){
+	oscP5 = new OscP5(this,12000);
+	myRemoteLocation = new NetAddress("127.0.0.1",12000);
 
-myBus = new MidiBus(this, "TouchOSC Bridge", -1);
+	myBus = new MidiBus(this, "TouchOSC Bridge", -1);
+}
 ```
 
 Our main function for getting midi input via Midibus:
@@ -132,3 +136,24 @@ void controllerChange(int channel, int number, int value) {
   println("Value:"+value);
 }
 ```
+
+Once you are receiving Midi events in your console, you can use if or switch statements to assignt he number to a variable.
+
+```
+if(number == 0){
+    x = value;
+} else if (number == 1){
+    y = value;
+}
+```
+
+or with switch statement:
+```
+switch(number){
+    case 0:
+        x = value;
+        break;
+    case 1:
+        y = value;
+        break;
+}
