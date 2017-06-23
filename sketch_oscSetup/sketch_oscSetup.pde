@@ -13,6 +13,7 @@ float rotation = 0;
 
 float r, g, b = 0;
 float x, y;
+float rand = 4;
 
 void setup() {
   size(400,400, P3D);
@@ -57,7 +58,7 @@ void draw() {
   rotateX(rotation);
   ellipse(0, 0, diameter, diameter);
 
-  x += random(-4, 4);
+  x += random(-rand, rand);
   y += random(-4, 4);
 }
 
@@ -89,8 +90,10 @@ void oscEvent(OscMessage theOscMessage) {
     println(val);
   } else if (theOscMessage.checkAddrPattern("/fader2")==true) {
     float val = theOscMessage.get(0).floatValue();
-    // something = val;
-    println(val);
+    
+    rand = map(val, 0.0, 127.0, 4, 10);
+    
+    println(rand);
   } else if (theOscMessage.checkAddrPattern("/rotary1")==true) {
     float val = theOscMessage.get(0).floatValue();
     rotation = map(val, 0.0, 127.0, 0.0, PI);

@@ -42,7 +42,7 @@ TouchOSC is an app designed for iOS that gives us the ability to communicate bet
 ## TouchOSC Editor
 In the TouchOSC Editor, we can create a customized interface with multiple pages and input types that gives us multiple ways to control behaviors in our sketches.
 
-####Demo:
+#### Demo:
 - Designing using basic inputs
 - Moving over to Processing to check connectivity in OSC or MIDI
 - Using value to assign a control point
@@ -168,3 +168,5 @@ switch(number){
         y = value;
         break;
 }
+
+Madmapper
