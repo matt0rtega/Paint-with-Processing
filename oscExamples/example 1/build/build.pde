@@ -1,10 +1,8 @@
 //OSC Setup
 
 import oscP5.*;
-import netP5.*;
 
 OscP5 oscP5;
-NetAddress myRemoteLocation;
 
 //Declare your variables in the global scope so you can access them between functions
 float diameter = 30;
@@ -15,34 +13,14 @@ float r, g, b = 0;
 float x, y;
 float rand = 4;
 
+PVector location = new PVector(width/2, height/2);
+
 void setup() {
   size(400,400, P3D);
 
   // start oscP5, listening for incoming messages at port 12000
   oscP5 = new OscP5(this,8000);
-
-  /* myRemoteLocation is a NetAddress. a NetAddress takes 2 parameters,
-   * an ip address and a port number. myRemoteLocation is used as parameter in
-   * oscP5.send() when sending osc packets to another computer, device,
-   * application. usage see below. for testing purposes the listening port
-   * and the port of the remote location address are the same, hence you will
-   * send messages back to this sketch.
-   */
-  myRemoteLocation = new NetAddress("127.0.0.1",8000);
-
 }
-
-
-// Sending messages, if need. But the main thing we want to do is receive messages.
-void mousePressed() {
-  /* create a new osc message with address pattern /test */
-  OscMessage myMessage = new OscMessage("/test");
-  myMessage.add(123);
-
-  /* send the message */
-  oscP5.send(myMessage, myRemoteLocation);
-}
-
 
 void draw() {
   //background(0);
@@ -53,13 +31,13 @@ void draw() {
   
   noStroke();
   fill(r, g, b);
-  translate(x, y);
+  translate(location.x, location.y);
 
   rotateX(rotation);
   ellipse(0, 0, diameter, diameter);
 
-  x += random(-rand, rand);
-  y += random(-4, 4);
+  location.x = location.x + random(-rand, rand);
+  location.y = location.y + random(-4, 4);
 }
 
 
@@ -82,8 +60,12 @@ void oscEvent(OscMessage theOscMessage) {
     diameter = valY;
     g = valY;
 
-    println(x);
-    println(y);
+    // Using one value to control multiple inputs
+    location.y = map(valX, 0, 127, height, 0);
+    location.x = map(valY, 0, 127, 0, width);
+
+    println(valX);
+    println(valY);
   } else if (theOscMessage.checkAddrPattern("/page1/fader1")==true) {
     float val = theOscMessage.get(0).floatValue();
     b = val;
@@ -91,12 +73,12 @@ void oscEvent(OscMessage theOscMessage) {
   } else if (theOscMessage.checkAddrPattern("/page1/fader2")==true) {
     float val = theOscMessage.get(0).floatValue();
     
-    rand = map(val, 0.0, 127.0, 4, 10);
+    rand = map(val, 0.0, 127.0, 4, 50);
     
     println(rand);
   } else if (theOscMessage.checkAddrPattern("/page1/rotary1")==true) {
     float val = theOscMessage.get(0).floatValue();
-    rotation = map(val, 0.0, 127.0, 0.0, PI);
+    rotation = map(val, 0.0, 127.0, 0.0, PI*2);
     println(val);
   }
 
