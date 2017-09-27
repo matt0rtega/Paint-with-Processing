@@ -144,34 +144,37 @@ Keep that number on hand. You will need it for setting up the TouchOSC app.
 
 Our main setup and functions for OSC:
 
-    ```java
-    import oscP5.*;
-    OscP5 oscP5;` 
-    
-    void setup(){
-      size(400, 400);
-    
-      oscP5 = new OscP5(this,8000);
-    }
-    }
-    ```
+```java
+import oscP5.*;
+OscP5 oscP5;` 
+
+void setup(){
+  size(400, 400);
+
+  oscP5 = new OscP5(this,8000);
+}
+
+}
+```
+
 
 Our main function for getting OSC events:
 
-    ```java /* incoming osc message are forwarded to the oscEvent method. */
-    void oscEvent(OscMessage theOscMessage) {
-    
-     //print the address pattern and the typetag of the received OscMessage
-     print("### received an osc message.");
-     print(" addrpattern: "+theOscMessage.addrPattern());
-     //Integer, float, etc.
-     println(" typetag: "+theOscMessage.typetag());
-    
-     //Parse out the value using .get() method
-     float val = theOscMessage.get(0).floatValue();
-    
-    }
-    ```
+```java 
+/* incoming osc message are forwarded to the oscEvent method. */
+void oscEvent(OscMessage theOscMessage) {
+
+ //print the address pattern and the typetag of the received OscMessage
+ print("### received an osc message.");
+ print(" addrpattern: "+theOscMessage.addrPattern());
+ //Integer, float, etc.
+ println(" typetag: "+theOscMessage.typetag());
+
+ //Parse out the value using .get() method
+ float val = theOscMessage.get(0).floatValue();
+
+}
+```
 
 We can also isolate the value by using the addrPatter in a number of ways. _See examples in helloWorld/sketch_helloWorld 1-3_ 
 
@@ -189,7 +192,7 @@ This examples uses an if statement to check the Addr pattern.
 
 Midi is a bit easier of a setup in your Processing sketch. But you will also need to include the same OSC setup so that you can remotely connect without a cable. Don't forget to install TouchOSC Bridge and have it running when you execute your program.
 
-    ```java
+    ```
     import oscP5.*;
     import themidibus.*;
     OscP5 oscP5;
@@ -203,7 +206,7 @@ Midi is a bit easier of a setup in your Processing sketch. But you will also nee
 
 Our main function for getting midi input via Midibus:
 
-    ```java
+    ```
     void controllerChange(int channel, int number, int value) { 
       // Receive a controllerChange println(); 
       println("Controller Change:"); 
@@ -216,7 +219,7 @@ Our main function for getting midi input via Midibus:
 
 Once you are receiving Midi events in your console, you can use if or switch statements to assign the number to a variable.
 
-    ```java
+    ```
     if(number == 0){ 
       x = value;
     } else if (number == 1){ 
