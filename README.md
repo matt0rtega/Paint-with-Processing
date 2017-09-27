@@ -180,11 +180,11 @@ We can also isolate the value by using the addrPatter in a number of ways. _See 
 
 This examples uses an if statement to check the Addr pattern.
 
-    ```java
-    if (theOscMessage.checkAddrPattern("/fader1")==true){ 
-      float val = theOscMessage.get(0).floatValue(); x = = val;
-    }
-    ```
+```java
+if (theOscMessage.checkAddrPattern("/fader1")==true){ 
+  float val = theOscMessage.get(0).floatValue(); x = = val;
+}
+```
 
 # **Getting MIDI Connected**
 
@@ -192,40 +192,40 @@ This examples uses an if statement to check the Addr pattern.
 
 Midi is a bit easier of a setup in your Processing sketch. But you will also need to include the same OSC setup so that you can remotely connect without a cable. Don't forget to install TouchOSC Bridge and have it running when you execute your program.
 
-    ```
-    import oscP5.*;
-    import themidibus.*;
-    OscP5 oscP5;
-    MidiBus myBus;` 
-    
-     `void setup(){ 
-      oscP5 = new OscP5(this,8000);
-      //Midibus(this, INPUT, OUTPUT)  
-      myBus = new MidiBus(this, "TouchOSC Bridge", -1);
-    }```
+```java
+import oscP5.*;
+import themidibus.*;
+OscP5 oscP5;
+MidiBus myBus;` 
+
+ `void setup(){ 
+  oscP5 = new OscP5(this,8000);
+  //Midibus(this, INPUT, OUTPUT)  
+  myBus = new MidiBus(this, "TouchOSC Bridge", -1);
+}```
 
 Our main function for getting midi input via Midibus:
 
-    ```
-    void controllerChange(int channel, int number, int value) { 
-      // Receive a controllerChange println(); 
-      println("Controller Change:"); 
-      println("--------"); 
-      println("Channel:"+channel); 
-      println("Number:"+number); 
-      println("Value:"+value);
-    }
-    ```
+```java
+void controllerChange(int channel, int number, int value) { 
+  // Receive a controllerChange println(); 
+  println("Controller Change:"); 
+  println("--------"); 
+  println("Channel:"+channel); 
+  println("Number:"+number); 
+  println("Value:"+value);
+}
+```
 
 Once you are receiving Midi events in your console, you can use if or switch statements to assign the number to a variable.
 
-    ```
-    if(number == 0){ 
-      x = value;
-    } else if (number == 1){ 
-      y = value;
-    }
-    ```
+```java
+if(number == 0){ 
+  x = value;
+} else if (number == 1){ 
+  y = value;
+}
+```
 
 # Tips, tricks & challenges
 
