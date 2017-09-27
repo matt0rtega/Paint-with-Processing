@@ -81,9 +81,10 @@ To get notified about future workshops and events feel free to sign up for my ma
 
 Here we can see a quick video that will allow us to get an idea of the type of interaction we can add by connecting controllers beyond the mouse. Once we go beyond the mouse, interacting with the computer becomes almost like a musical experience.
 
-- Example 1
-- Example 2
-- Example 3
+- [Example link 1](https://vimeo.com/59984923)
+- [Example link 2](https://vimeo.com/2388650)
+- [Example link 3](https://vimeo.com/37936808)
+- Ryoji Ikeda
 
 # What is OSC?
 
