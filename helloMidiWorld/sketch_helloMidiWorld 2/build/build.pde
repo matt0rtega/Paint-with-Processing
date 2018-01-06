@@ -63,7 +63,4 @@ void controllerChange(int channel, int number, int value) {
   }
 
   // Method 2: Using if statements, etc.
-  if (value = 0){
-    fade1 = value;
-  }
 }

@@ -80,6 +80,8 @@ public void controllerChange(int channel, int number, int value) {
       println("No midi number for that assignment!");
       break;
   }
+
+  // Method 2: Using if statements, etc.
 }
   public void settings() {  size(400,400); }
   static public void main(String[] passedArgs) {

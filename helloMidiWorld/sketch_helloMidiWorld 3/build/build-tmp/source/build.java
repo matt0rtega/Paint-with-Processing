@@ -25,10 +25,13 @@ public class build extends PApplet {
 MidiBus myBus;
 OscP5 oscP5;
 
+float tx, ty;
 float x, y;
 float rotary;
 float fade1, fade2;
 float push, toggle;
+
+
 
 public void setup() {
   
@@ -58,8 +61,14 @@ public void draw() {
 
   // Since MIDI is currently sending numbers from 0 to 127
   // we need to use the map function.
-  x = (int)map(x, 0, 127, 0, width);
-  y = (int)map(y, 0, 127, height, 0);
+  //x = (int)map(x, 0, 127, 0, width);
+  //y = (int)map(y, 0, 127, height, 0);
+
+  //loat x0 = map(sin(frameCount*speed*j), -1, 1, -200/j, 200/j);
+
+  //translate(x, y);
+
+  //translate(-width/2, -height/2);
 
   noStroke();
 
@@ -69,8 +78,16 @@ public void draw() {
   } else {
     fill(255, 0, 255, fade2);
   }
-  
-  ellipse(x, y, rotary, rotary);
+
+  for(int i=1; i<10; i++){
+
+
+
+    tx = map(sin(frameCount*0.02f+(i*10)), -1, 1, 0, width-(i*10));
+    ty = map(cos(frameCount*0.03f+(i*3)),-1, 1, 0, height-(i*10));
+
+    ellipse(tx, ty, rotary, rotary);
+  }
 
 }
 
@@ -106,16 +123,21 @@ public void controllerChange(int channel, int number, int value) {
       println("rotary: "+rotary);
       break;
     case 5:
-      y = value;
+      x = value;
       println("x: "+y);
       break;
     case 6:
-      x = value;
+      y = value;
       println("y: "+x);
       break;
     default:
       println("No midi number for that assignment!");
       break;
+  }
+
+  // Method 2: Using if statements, etc.
+  if (value == 0){
+    fade1 = value;
   }
 
 }
